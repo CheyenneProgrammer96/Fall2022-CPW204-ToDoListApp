@@ -23,15 +23,18 @@
     <br>
 
     <input type="checkbox">
-    <label for="is-complete">Is complete?</label>
+    <label for="is-complete" id="is-complete">Is complete?</label>
     <br>
 
-    <input type="button" value="Add ToDo Item">
+    <input type="button" value="Add ToDo Item" id="add"> 
     <br>
 
     <h3>ToDo Items</h3>
-    <div id="incomplete-items"></div>
-    <div id="complete-items"></div>
+    <div id="all-items">
+        <div id="incomplete-items"></div>
+        <div id="complete-items"></div>
+    </div>
+    
 
     <script src="https://unpkg.com/js-datepicker"></script>
     <script src="js/main.js"></script>
