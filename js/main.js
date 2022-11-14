@@ -34,7 +34,7 @@ function getToDoItem() {
     var dueDateInput = getInput("due-date");
     myItem.dueDate = new Date(dueDateInput.value);
     var isCompleted = getInput("is-complete");
-    myItem.isCompleted = isCompleted.checked;
+    myItem.isCompleted = isCompleted.checked = false;
     return myItem;
 }
 function getInput(id) {

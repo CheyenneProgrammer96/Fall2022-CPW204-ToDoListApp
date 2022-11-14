@@ -56,7 +56,7 @@ function getToDoItem():ToDoItem{
 
         // get isCompleted
         let isCompleted = getInput("is-complete");
-        myItem.isCompleted = isCompleted.checked;
+        myItem.isCompleted = isCompleted.checked = false;
         
         return myItem;
     }
