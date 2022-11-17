@@ -12,16 +12,9 @@ window.onload = function(){
     let addItem = document.getElementById("add")
     addItem.onclick = main;
 
-    let clearItem = document.getElementById("clear")
-    clearItem.onclick = main;
-
     loadSavedItems();
 }
 
-function addErrorMessage(errMsg:string) {
-    let errItem = document.createElement("li");
-    errItem.innerText = errMsg;
-}
 
 function loadSavedItems(){
     let itemArray = getToDoItems(); // read from storage
@@ -38,7 +31,6 @@ function main(){
         let item = getToDoItem();
         displayToDoItem(item);
         saveToDo(item);
-        clearAllErrors();
     }
 }
 
@@ -51,14 +43,6 @@ function getInputById(id:string):HTMLInputElement{
  */
 function isValid():boolean{
     return true;
-}
-
-/**
- * Clears out the ToDo list
- */
-function clearAllErrors(){
-    let errSummary = document.getElementById("validation")
-    errSummary.innerHTML = "";
 }
 
 /**

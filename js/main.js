@@ -8,14 +8,8 @@ var ToDoItem = (function () {
 window.onload = function () {
     var addItem = document.getElementById("add");
     addItem.onclick = main;
-    var clearItem = document.getElementById("clear");
-    clearItem.onclick = main;
     loadSavedItems();
 };
-function addErrorMessage(errMsg) {
-    var errItem = document.createElement("li");
-    errItem.innerText = errMsg;
-}
 function loadSavedItems() {
     var itemArray = getToDoItems();
     for (var i = 0; i < itemArray.length; i++) {
@@ -28,7 +22,6 @@ function main() {
         var item = getToDoItem();
         displayToDoItem(item);
         saveToDo(item);
-        clearAllErrors();
     }
 }
 function getInputById(id) {
@@ -36,10 +29,6 @@ function getInputById(id) {
 }
 function isValid() {
     return true;
-}
-function clearAllErrors() {
-    var errSummary = document.getElementById("validation");
-    errSummary.innerHTML = "";
 }
 function getToDoItem() {
     var myItem = new ToDoItem();
