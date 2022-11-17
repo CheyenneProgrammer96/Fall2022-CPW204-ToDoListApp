@@ -23,6 +23,7 @@
 }
 
 #complete-items{
+    margin-left: 2em;
     border:.2em solid blue;
     width: 50%;
     box-sizing: border-box;
@@ -41,7 +42,7 @@
 
 #complete-items,
 #incomplete-items {
-    display: flex;
+    display: flexbox;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;

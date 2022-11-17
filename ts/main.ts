@@ -12,7 +12,15 @@ window.onload = function(){
     let addItem = document.getElementById("add")
     addItem.onclick = main;
 
+    let clearItem = document.getElementById("clear")
+    clearItem.onclick = main;
+
     loadSavedItems();
+}
+
+function addErrorMessage(errMsg:string) {
+    let errItem = document.createElement("li");
+    errItem.innerText = errMsg;
 }
 
 function loadSavedItems(){
@@ -30,14 +38,27 @@ function main(){
         let item = getToDoItem();
         displayToDoItem(item);
         saveToDo(item);
+        clearAllErrors();
     }
+}
+
+function getInputById(id:string):HTMLInputElement{
+    return <HTMLInputElement>document.getElementById(id);
 }
 
 /**
  * Check form data is valid
  */
 function isValid():boolean{
-   return true;
+    return true;
+}
+
+/**
+ * Clears out the ToDo list
+ */
+function clearAllErrors(){
+    let errSummary = document.getElementById("validation")
+    errSummary.innerHTML = "";
 }
 
 /**
@@ -109,6 +130,9 @@ function displayToDoItem(item:ToDoItem):void{
 
 }
 
+/**
+ * Marks the ToDoItem as completed
+ */
 function markAsComplete(){
     let itemDiv = <HTMLElement>this;
     console.log(itemDiv);
@@ -118,7 +142,9 @@ function markAsComplete(){
     console.log(completedItems);
     completedItems.appendChild(itemDiv);
 }
-// TO DO: Store ToDoItems in a web storage
+/**
+ * Stores ToDoItems in a web storage
+ */ 
 
 function saveToDo(item:ToDoItem):void{
     let currItems = getToDoItems();

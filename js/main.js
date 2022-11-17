@@ -8,8 +8,14 @@ var ToDoItem = (function () {
 window.onload = function () {
     var addItem = document.getElementById("add");
     addItem.onclick = main;
+    var clearItem = document.getElementById("clear");
+    clearItem.onclick = main;
     loadSavedItems();
 };
+function addErrorMessage(errMsg) {
+    var errItem = document.createElement("li");
+    errItem.innerText = errMsg;
+}
 function loadSavedItems() {
     var itemArray = getToDoItems();
     for (var i = 0; i < itemArray.length; i++) {
@@ -22,10 +28,18 @@ function main() {
         var item = getToDoItem();
         displayToDoItem(item);
         saveToDo(item);
+        clearAllErrors();
     }
+}
+function getInputById(id) {
+    return document.getElementById(id);
 }
 function isValid() {
     return true;
+}
+function clearAllErrors() {
+    var errSummary = document.getElementById("validation");
+    errSummary.innerHTML = "";
 }
 function getToDoItem() {
     var myItem = new ToDoItem();
@@ -34,7 +48,7 @@ function getToDoItem() {
     var dueDateInput = getInput("due-date");
     myItem.dueDate = new Date(dueDateInput.value);
     var isCompleted = getInput("is-complete");
-    myItem.isCompleted = isCompleted.checked = false;
+    myItem.isCompleted = isCompleted.checked;
     return myItem;
 }
 function getInput(id) {
