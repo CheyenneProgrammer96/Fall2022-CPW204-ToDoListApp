@@ -11,8 +11,19 @@ class ToDoItem{
 window.onload = function(){
     let addItem = document.getElementById("add")
     addItem.onclick = main;
-
+    
     loadSavedItems();
+}
+
+function clear(){
+    
+    let incompleteItems = document.getElementById("incomplete-items")
+    incompleteItems.innerHTML = "";
+
+    let completeItems = document.getElementById("complete-items")
+    completeItems.innerHTML = "";
+
+    alert("You cleared the page!")
 }
 
 
@@ -58,6 +69,8 @@ function getToDoItem():ToDoItem{
         // get due date
         let dueDateInput = getInput("due-date");
         myItem.dueDate = new Date(dueDateInput.value);
+        console.log(myItem);
+        console.log(dueDateInput.value);
 
         // get isCompleted
         let isCompleted = getInput("is-complete");
@@ -140,6 +153,7 @@ function saveToDo(item:ToDoItem):void{
     let currItemsString = JSON.stringify(currItems);
     localStorage.setItem(todokey, currItemsString);
 }
+
 
 const todokey = "todo";
 

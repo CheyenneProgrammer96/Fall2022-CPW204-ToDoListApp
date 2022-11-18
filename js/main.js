@@ -36,6 +36,8 @@ function getToDoItem() {
     myItem.title = titleInput.value;
     var dueDateInput = getInput("due-date");
     myItem.dueDate = new Date(dueDateInput.value);
+    console.log(myItem);
+    console.log(dueDateInput.value);
     var isCompleted = getInput("is-complete");
     myItem.isCompleted = isCompleted.checked;
     return myItem;
@@ -82,6 +84,9 @@ function saveToDo(item) {
     currItems.push(item);
     var currItemsString = JSON.stringify(currItems);
     localStorage.setItem(todokey, currItemsString);
+}
+function clear() {
+    document.getElementById("clear-input");
 }
 var todokey = "todo";
 function getToDoItems() {
